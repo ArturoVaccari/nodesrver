@@ -1,14 +1,20 @@
 const express = require('express')
-// let PORT  = process.argv[3] || 3000
-let PORT = process.argv[2] || 3000
 const app = express()
+const fs = require('fs')
+let port = process.argv[2] || 8080
 
-// app.use(express.static('nome cartella file statici'))
-app.use(express.static(__dirname + '/public'))
+app.get('/menu', function(req, res){
+    const filename = process.argv[3]
+    fs.readFile(filename, function(e, data) {
+        // 500 internal error server
+        if (e) return res.sendStatus(500)
+        try {
+            menu = JSON.parse(data)
+        } catch (e) {
+            res.sendStatus(500)
+        }
+        res.json(menu)
+    })
+})
 
-//app.get('/', (req, res) => {
-//    res.send('hello worldo')
-//})
-
-app.listen(PORT)
-console.log(`Server running at http://127.0.0.1:${PORT}`);
+app.listen(port)
