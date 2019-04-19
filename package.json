@@ -1,0 +1,28 @@
+{
+  "name": "nodesrver",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "express": "node express.js",
+    "copy": "mv dev.js.bk dev.js",
+    "serve": "npm start",
+    "dev": "node dev.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArturoVaccari/nodesrver.git"
+  },
+  "author": "ArturoVaccari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArturoVaccari/nodesrver/issues"
+  },
+  "homepage": "https://github.com/ArturoVaccari/nodesrver#readme",
+  "keywords": [],
+  "description": "",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
