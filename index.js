@@ -4,7 +4,7 @@ const fs = require('fs')
 let port = process.argv[2] || 8080
 
 app.get('/menu', function(req, res){
-    const filename = process.argv[3]
+    const filename = 'menu.json'
     fs.readFile(filename, function(e, data) {
         // 500 internal error server
         if (e) return res.sendStatus(500)
