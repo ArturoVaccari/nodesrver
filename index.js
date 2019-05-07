@@ -14,5 +14,6 @@ app.use(myLogger);
 
 app.use('/v0.1/users', users)
 app.use('/v0.1/personaggi', personaggi)
+app.use('/v0.2/personaggi', personaggi)
 
 app.listen(port)
