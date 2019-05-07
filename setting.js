@@ -1,14 +1,14 @@
 const test = {
     prototipo: 0.01
-}
-
-const settings = {
+  }
+  
+  const settings = {
     versione: 0.01,
     mode: 'dark',
     location: 'Trieste'
-}
-
-module.exports = {
+  }
+  
+  module.exports = {
     test,
     settings
-}
+  }
