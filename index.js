@@ -5,7 +5,7 @@ const users = require('./routes/users')
 const personaggi = require('./routes/personaggi')
 let port = process.argv[2] || 8080
 
-
+/*
 const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require("mongodb").ObjectId;
 const uri = "mongodb+srv://Vaccari:Vaccari@cluster0-7hppq.mongodb.net/test?retryWrites=true";
@@ -19,6 +19,7 @@ client.connect(err => {
   const collection = client.db("test").collection("devices");
   // perform actions on the collection object
 
+codice ridondante
   //read
   client.db("PrimaProva").collection("Data").find().toArray(function(err, result){
       if (err) throw err
@@ -46,8 +47,13 @@ client.connect(err => {
   //delete
   client.db("PrimaProva").collection("Data").remove({_id:ObjectId("5cd54ae48630ed313874a65e")}, {w:1}, function (err, result){
     if (err) throw err;
-    console.log("Document removed successfuly");
+    console.log(`Document removed successfuly: ${result}`);
   });
+  */
+
+  //codice non ridondante
+  
+
 
   client.close();
 });
