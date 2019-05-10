@@ -30,4 +30,11 @@ router.get('/:id/', (req, res) => {
   res.jason(characters.characters.filter(personaggio => personaggio.id === id))
 })
 
+router.get('/form', (req, res) => {
+    const body = req.body
+    const {nome, cognome, occupazione} = req.body
+    console.log(nome, cognome, occupazione)
+    res.send(body)
+  })
+
 module.exports = router
