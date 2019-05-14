@@ -5,36 +5,56 @@ const characters = require('../data/characters')
 // chiedi http://localhost:7070/personaggi?colore=giallo&sesso=m
 router.get('/', (req, res, next) => {
     const query = req.query
+
     let personaggi = characters.characters
     if ('lastname' in query) {
-        personaggi = personaggi.filter((personaggio) => {
+      personaggi = personaggi.filter((personaggio) => {
         return personaggio.lastname === query.lastname
-        })
+      })
     }
     if ('firstname' in query) {
-        personaggi = personaggi.filter((personaggio) => {
+      personaggi = personaggi.filter((personaggio) => {
         return personaggio.firstname === query.firstname
-        })
+      })
     }
     res.send(personaggi)
-    next();
-    }, (req, res, next) => {
-        console.log('FIRE')
-    }
+    // next();
+  }, (req, res, next) => {
+    console.log('FIRE 2')
+  }
 )
 
 // Params
 //http://localhost:7070/personaggi/9
-router.get('/:id/', (req, res) => {
+
+router.get('/:id', (req, res) => {
+  // convert string in numebr
   const id = Number(req.params.id)
-  res.jason(characters.characters.filter(personaggio => personaggio.id === id))
+  res.json(characters.characters.filter(item => item.id === id))
 })
 
-router.get('/form', (req, res) => {
-    const body = req.body
-    const {nome, cognome, occupazione} = req.body
-    console.log(nome, cognome, occupazione)
-    res.send(body)
-  })
+// Metodo POST
+router.post('/form', (req, res) => {
+  const body = req.body
+  const {
+    nome,
+    cognome,
+    occupazione,
+    tel
+  } = req.body
+
+  const status = {}
+  console.log(nome, cognome, occupazione, tel)
+  if (nome) {
+    status.code = 'ok'
+    status.message = `Benvenuto ${nome}`
+  } else {
+    status.code = 'error'
+    status.message = 'nome non valido'
+    status.campo = 'nome'
+  }
+  res.send(status)
+})
+
 
 module.exports = router
