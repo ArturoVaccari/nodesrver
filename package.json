@@ -19,7 +19,6 @@
   "keywords": [],
   "description": "",
   "dependencies": {
-    "express": "^4.16.4",
-    "mongodb": "^3.2.4"
+    "express": "^4.16.4"
   }
 }
